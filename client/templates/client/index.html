@@ -1,0 +1,51 @@
+{% extends 'client/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block content %}
+    <main class="container px-3">
+        <div class="block-data pb-4">
+            <h1 class="text-center py-5 fw-bolder fs-1 fs-sm-3">Спортивные объекты РФ</h1>
+            <p class="text-center fs-5 fw-light px-3">(Синим цветом выделены строящиеся объекты, фиолетовым - реконструируемые)</p>
+            <div id="map" style="max-width: 1200px; height: 400px" class="mx-auto"></div>
+            <div class="mx-5 my-4">
+                <h5 class="fs-4 fs-sm-5 count">Всего объектов: <span class="fw-light"></span></h5>
+                <h5 class="fs-4 fs-sm-5 subject">Лидеры среди субъектов: <span class="fw-light"></span></h5>
+                <h5 class="fs-4 fs-sm-5 complex">Лидеры спортивного комплекса: <span class="fw-light"></span></h5>
+            </div>
+        </div>
+
+        <div class="block-data pb-4 px-5">
+          <h2 class="text-center py-5">Распределение по субъектам РФ</h2>
+          <canvas id="subChart"></canvas>
+        </div>
+
+        <div class="block-data py-5 px-3">
+            <div class="d-flex flex-wrap justify-content-around align-items-end">
+                  <div style="max-width: 500px" class="px-3">
+                      <h2 class="text-center pb-4">Количество объектов спортивного комплекса</h2>
+                      <canvas id="objChart"></canvas>
+                      <h5 class="mt-5">В <span class="fw-bold">другое</span> входят:</h5>
+                      <ul class="fw-light"></ul>
+                  </div>
+                  <div style="max-width: 500px" class="mt-5 px-3">
+                      <h2 class="text-center pb-4">Общее финансирование спортивного комплекса</h2>
+                      <canvas id="finChart"></canvas>
+                      <h5 class="mt-5">В <span class="fw-bold">другое</span> входят:</h5>
+                      <ul class="fw-light"></ul>
+                  </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+
+{% block script %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'client/js/index.js' %}"></script>
+{% endblock %}

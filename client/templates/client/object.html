@@ -1,0 +1,69 @@
+{% extends 'client/base.html' %}
+{% load humanize %}
+{% load static %}
+
+
+{% block title %}
+    VIZDA - {{ data.title }}
+{% endblock %}
+
+
+{% block content %}
+    <main class="container px-3">
+        <div style="max-width: 700px" class="block-data p-5 mx-auto">
+            <h3 class="text-center mb-5">{{ data.title }}</h3>
+            <div id="map" style="max-width: 100%; height: 300px" class="mx-auto mb-5"></div>
+
+            {% if data.type_of_sport_complex.title %}
+                <p class="fw-light fs-5"><span class="fw-bold">Тип спортивного комплекса:</span> {{ data.type_of_sport_complex.title }}</p>
+            {% endif %}
+
+            {% if data.long_description %}
+                <p class="fw-light fs-5"><span class="fw-bold">Описание:</span> {{ data.long_description }}</p>
+            {% elif data.short_description %}
+                <p class="fw-light fs-5"><span class="fw-bold">Описание:</span> {{ data.short_description }}</p>
+            {% endif %}
+
+            {% if data.subject.title %}
+                <p class="fw-light fs-5"><span class="fw-bold">Субъект федерации:</span> {{ data.subject.title }}</p>
+            {% endif %}
+
+            {% if data.address %}
+                <p class="fw-light fs-5"><span class="fw-bold">Адрес:</span> {{ data.address }}</p>
+            {% endif %}
+
+            {% if data.action %}
+                <p class="fw-light fs-5"><span class="fw-bold">Действие с объектом:</span> {{ data.action }}</p>
+            {% endif %}
+
+            {% if data.oktmo %}
+                <p class="fw-light fs-5"><span class="fw-bold">ОКТМО:</span> {{ data.oktmo }}</p>
+            {% endif %}
+
+            {% if data.financing %}
+                <p class="fw-light fs-5"><span class="fw-bold">Общее финансирование:</span> {{ data.financing|intcomma }} ₽</p>
+            {% endif %}
+
+            {% if data.date_start %}
+                <p class="fw-light fs-5"><span class="fw-bold">Дата начала {% if data.action == 'строительство' %}строительства{% else %}реконструкции{% endif %}:</span> {{ data.date_start }}</p>
+            {% endif %}
+
+            {% if data.date_end %}
+                <p class="fw-light fs-5"><span class="fw-bold">Дата окончания {% if data.action == 'строительство' %}строительства{% else %}реконструкции{% endif %}:</span> {{ data.date_end }}</p>
+            {% endif %}
+
+            {% if data.email %}
+                <p class="fw-light fs-5"><span class="fw-bold">Email:</span> {{ data.email }}</p>
+            {% endif %}
+
+            {% if data.telephone %}
+                <p class="fw-light fs-5"><span class="fw-bold">Телефон:</span> {{ data.telephone }}</p>
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'client/js/object.js' %}"></script>
+{% endblock %}

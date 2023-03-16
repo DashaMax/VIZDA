@@ -1,0 +1,34 @@
+{% extends 'client/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    VIZDA - {{ title }}
+{% endblock %}
+
+
+{% block content %}
+    <main class="container px-3">
+        <div style="max-width: 800px;" class="block-data p-4 mx-auto">
+            <h2 class="text-center fw-bolder">{{ title }}</h2>
+            <div id="map" style="max-width: 100%; height: 300px" class="mt-3 mx-auto"></div>
+            <h5 class="fw-bold mt-4 count">Всего объектов: <span class="fw-light"></span></h5>
+            <h5 class="fw-bold mt-4 finance-summa">Финансирование комплекса (суммарное): <span class="fw-light"></span></h5>
+            <h5 class="fw-bold mt-4 finance-mean">Финансирование комплекса (среднее): <span class="fw-light"></span></h5>
+            <h5 class="fw-bold mt-4">Адреса объектов:</h5>
+            <ul class="fw-light"></ul>
+            <p class="address ms-4 text-success" style="display: none" role="button">Показать все адреса</p>
+        </div>
+
+        <div style="max-width: 800px;" class="block-data pb-4 px-3 mx-auto">
+          <h2 class="text-center py-5">Распределение объектов типа "{{ title }}" по субъектам РФ</h2>
+          <canvas id="subChart"></canvas>
+        </div>
+    </main>
+{% endblock %}
+
+
+{% block script %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'client/js/complex.js' %}"></script>
+{% endblock %}
