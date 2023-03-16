@@ -8,3 +8,7 @@
 
 
 Видео демо-работы проекта предоставляется.
+
+
+https://user-images.githubusercontent.com/110603766/225689336-f67b3fa0-b850-4547-8da0-ad3119cbd12d.mp4
+
